@@ -1,0 +1,14 @@
+---
+- name: Install Apachi web server(name of the play book)
+  hosts: Webserver
+  become: true (this tells ansible to use sudo to execute the tasks
+  tasks:
+    - name: Install Apache (this is the name of the task)
+      yum:
+        name: httpd
+        state: latest
+    - name: start Apache
+      service:
+        name: httpd
+        state: started
+        enabled: true
